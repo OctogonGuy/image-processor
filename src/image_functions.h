@@ -48,6 +48,15 @@ ImageMatrix* contrast(const ImageMatrix& image, const int& value);
 
 
 /**
+ * Makes the image appear brighter or darker
+ * @param image The image
+ * @param value The brightness factor (-255 - 255)
+ * @return The output image
+ */
+ImageMatrix* brightness(const ImageMatrix& image, const int& value);
+
+
+/**
  * Averages each pixel's value with the value of its neighboring pixels
  * @param image The image
  * @param radius 2 * radius + 1 = Width and height of the kernel

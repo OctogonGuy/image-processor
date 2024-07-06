@@ -161,6 +161,16 @@ ImageMatrix* contrast(const ImageMatrix& image, const int& value) {
 }
 
 
+ImageMatrix* brightness(const ImageMatrix& image, const int& value) {
+	const double matrix[] = {
+		1,	0,	0,	static_cast<double>(value),
+		0,	1,	0,	static_cast<double>(value),
+		0,	0,	1,	static_cast<double>(value)
+	};
+	return image.filter(matrix);
+}
+
+
 ImageMatrix* box_blur(const ImageMatrix& image, const int& radius) {
 	const int kernel_size = static_cast<int>(pow(2 * radius + 1, 2));
 	vector<double> kernel(kernel_size, 1);

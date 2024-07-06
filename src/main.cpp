@@ -72,6 +72,13 @@ int process_commands(int argc, char** argv) {
 		"the contrast value (-255 - 255)")
 	->check(CLI::Range(-255, 255));
 
+	app.add_subcommand("brightness",
+		"Makes the image appear brighter or darker");
+	int brightness_value{0};
+	app.get_subcommand("brightness")->add_option("--value", brightness_value,
+		"the brightness factor (-255 - 255)")
+	->check(CLI::Range(-255, 255));
+
     app.add_subcommand("box-blur",
 		"Averages each pixel's value with the value of its neighboring pixels");
 	int box_blur_radius{1};
@@ -163,9 +170,13 @@ int process_commands(int argc, char** argv) {
 		}
 
 		else if (key == "contrast") {
-			cout << contrast_value;
 			temp = contrast(*image,
 				contrast_value);
+		}
+
+		else if (key == "brightness") {
+			temp = brightness(*image,
+				brightness_value);
 		}
 
 		else if (key == "box-blur") {
