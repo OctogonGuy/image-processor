@@ -22,3 +22,11 @@ echo "contrast"
 cmake-build-debug/Image_Processor --ref test/ref/penguins.jpg --out test/out/contrast.jpg contrast --value=128
 echo "brightness"
 cmake-build-debug/Image_Processor --ref test/ref/penguins.jpg --out test/out/brightness.jpg brightness --value=128
+echo "rotate"
+cmake-build-debug/Image_Processor --ref test/ref/penguins.jpg --out test/out/rotate.jpg rotate --theta=45
+echo "reflect-horizontal"
+cmake-build-debug/Image_Processor --ref test/ref/penguins.jpg --out test/out/reflect_horizontal.jpg reflect-horizontal
+echo "reflect-vertical"
+cmake-build-debug/Image_Processor --ref test/ref/penguins.jpg --out test/out/reflect_vertical.jpg reflect-vertical
+echo "dilate"
+cmake-build-debug/Image_Processor --ref test/ref/penguins.jpg --out test/out/dilate.jpg dilate --factor=1.5
