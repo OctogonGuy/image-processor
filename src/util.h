@@ -105,6 +105,14 @@ public:
  * @return The output image
 */
  ImageMatrix* convolve(const double* kernel, const size_t& kernel_size, const double& scalar) const;
+
+ /**
+ * Transforms the image according to a transformation matrix
+ * @param t_matrix The 2x2 transformation matrix
+ * @param t_size The length of the transformation array
+ * @return The output image
+*/
+ ImageMatrix* transform(const double* t_matrix) const;
 };
 
 

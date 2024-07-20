@@ -139,6 +139,29 @@ ImageMatrix* ImageMatrix::convolve(const double* kernel, const size_t& kernel_si
 }
 
 
+ImageMatrix* ImageMatrix::transform(const double* t_matrix) const {
+    auto* new_image = new ImageMatrix(width, height, bpp);
+    // Transform each pixel like a vector relative to the center of the image
+    for (int i = 0; i < getHeight(); i++) {
+        for (int j = 0; j < getWidth(); j++) {
+            // Determine the coordinates of the pixel vector
+            const int old_x = getWidth() / 2 - j;
+            const int old_y = getHeight() / 2 - i;
+            // Find the new coordinates using the transformation matrix
+            const int new_x = old_x * t_matrix[0] + old_y * t_matrix[1];
+            const int new_y = old_x * t_matrix[2] + old_y * t_matrix[3];
+            const int new_j = getWidth() / 2 - new_x;
+            const int new_i = getHeight() / 2 - new_y;
+            // Set the pixel color if within the bounds of the image
+            if (new_j >= 0 && new_j < getWidth() && new_i >= 0 && new_i < getHeight()) {
+                new_image->set(new_i, new_j, get(i, j));
+            }
+        }
+    }
+    return new_image;
+}
+
+
 ImageMatrix* read_image(const string& ref_path, int& width, int& height, int& bpp) {
     // Assert valid reference file type
     const string ext = ref_path.substr(ref_path.find_last_of('.') + 1);
