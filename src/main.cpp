@@ -127,6 +127,12 @@ int process_commands(int argc, char** argv) {
 	app.add_subcommand("octopus-dragon",
 	"Shifts the colors to mix of blue and orange tones");
 
+	app.add_subcommand("rotate",
+		"Rotates the image");
+	int rotate_theta{0};
+	app.get_subcommand("rotate")->add_flag("--theta", rotate_theta,
+		"The angle of rotation in degrees");
+
 
 	// --- Parse commands ---
 	CLI11_PARSE(app, argc, argv);
@@ -216,6 +222,11 @@ int process_commands(int argc, char** argv) {
 
 		else if (key == "octopus-dragon") {
 			temp = octopus_dragon(*image);
+		}
+
+		else if (key == "rotate") {
+			temp = rotate(*image,
+				rotate_theta);
 		}
 
 		else {

@@ -264,3 +264,13 @@ ImageMatrix* octopus_dragon(const ImageMatrix& image) {
 	};
 	return image.filter(matrix);
 }
+
+
+ImageMatrix* rotate(const ImageMatrix& image, const double& angle) {
+	const double theta = angle * M_PI / 180.0;
+	const double matrix[] = {
+		cos(theta),	-sin(theta),
+		sin(theta),	cos(theta)
+	};
+	return image.transform(matrix);
+}

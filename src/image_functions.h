@@ -127,4 +127,13 @@ ImageMatrix* color(const ImageMatrix& image, const std::string& hex);
 ImageMatrix* octopus_dragon(const ImageMatrix& image);
 
 
+/**
+ * Rotates the image
+ * @param image The image
+ * @param theta The angle of rotation in degrees
+ * @return The output image
+ */
+ImageMatrix* rotate(const ImageMatrix& image, const double& angle);
+
+
 #endif
