@@ -131,7 +131,13 @@ int process_commands(int argc, char** argv) {
 		"Rotates the image");
 	int rotate_theta{0};
 	app.get_subcommand("rotate")->add_flag("--theta", rotate_theta,
-		"The angle of rotation in degrees");
+	"The angle of rotation in degrees");
+
+	app.add_subcommand("reflect-horizontal",
+	"Reflects the image across the y-axis");
+
+	app.add_subcommand("reflect-vertical",
+		"Reflects the image across the x-axis");
 
 
 	// --- Parse commands ---
@@ -227,6 +233,14 @@ int process_commands(int argc, char** argv) {
 		else if (key == "rotate") {
 			temp = rotate(*image,
 				rotate_theta);
+		}
+
+		else if (key == "reflect-horizontal") {
+			temp = reflect_horizontal(*image);
+		}
+
+		else if (key == "reflect-vertical") {
+			temp = reflect_vertical(*image);
 		}
 
 		else {

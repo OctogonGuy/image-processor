@@ -136,4 +136,20 @@ ImageMatrix* octopus_dragon(const ImageMatrix& image);
 ImageMatrix* rotate(const ImageMatrix& image, const double& angle);
 
 
+/**
+ * Reflects the image across the y-axis
+ * @param image The image
+ * @return The output image
+ */
+ImageMatrix* reflect_horizontal(const ImageMatrix& image);
+
+
+/**
+ * Reflects the image across the x-axis
+ * @param image The image
+ * @return The output image
+ */
+ImageMatrix* reflect_vertical(const ImageMatrix& image);
+
+
 #endif

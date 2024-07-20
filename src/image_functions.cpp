@@ -274,3 +274,21 @@ ImageMatrix* rotate(const ImageMatrix& image, const double& angle) {
 	};
 	return image.transform(matrix);
 }
+
+
+ImageMatrix* reflect_horizontal(const ImageMatrix& image) {
+	const double matrix[] = {
+		-1.0,	0.0,
+		0.0,	1.0
+	};
+	return image.transform(matrix);
+}
+
+
+ImageMatrix* reflect_vertical(const ImageMatrix& image) {
+	const double matrix[] = {
+		1.0,	0.0,
+		0.0,	-1.0
+	};
+	return image.transform(matrix);
+}
