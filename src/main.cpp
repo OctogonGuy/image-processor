@@ -129,7 +129,7 @@ int process_commands(int argc, char** argv) {
 
 	app.add_subcommand("rotate",
 		"Rotates the image");
-	int rotate_theta{0};
+	double rotate_theta{0};
 	app.get_subcommand("rotate")->add_flag("--theta", rotate_theta,
 	"The angle of rotation in degrees");
 
@@ -137,7 +137,13 @@ int process_commands(int argc, char** argv) {
 	"Reflects the image across the y-axis");
 
 	app.add_subcommand("reflect-vertical",
-		"Reflects the image across the x-axis");
+	"Reflects the image across the x-axis");
+
+	app.add_subcommand("dilate",
+		"Scales the image");
+	double dilate_factor{1.0};
+	app.get_subcommand("dilate")->add_flag("--factor", dilate_factor,
+	"The factor by which to scale the image");
 
 
 	// --- Parse commands ---
@@ -241,6 +247,11 @@ int process_commands(int argc, char** argv) {
 
 		else if (key == "reflect-vertical") {
 			temp = reflect_vertical(*image);
+		}
+
+		else if (key == "dilate") {
+			temp = dilate(*image,
+				dilate_factor);
 		}
 
 		else {

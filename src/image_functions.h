@@ -152,4 +152,13 @@ ImageMatrix* reflect_horizontal(const ImageMatrix& image);
 ImageMatrix* reflect_vertical(const ImageMatrix& image);
 
 
+/**
+ * Scales the image
+ * @param image The image
+ * @param theta The factor by which to scale the image
+ * @return The output image
+ */
+ImageMatrix* dilate(const ImageMatrix& image, const double& factor);
+
+
 #endif

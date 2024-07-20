@@ -277,7 +277,7 @@ ImageMatrix* rotate(const ImageMatrix& image, const double& angle) {
 
 
 ImageMatrix* reflect_horizontal(const ImageMatrix& image) {
-	const double matrix[] = {
+	constexpr double matrix[] = {
 		-1.0,	0.0,
 		0.0,	1.0
 	};
@@ -286,9 +286,18 @@ ImageMatrix* reflect_horizontal(const ImageMatrix& image) {
 
 
 ImageMatrix* reflect_vertical(const ImageMatrix& image) {
-	const double matrix[] = {
+	constexpr double matrix[] = {
 		1.0,	0.0,
 		0.0,	-1.0
+	};
+	return image.transform(matrix);
+}
+
+
+ImageMatrix* dilate(const ImageMatrix& image, const double& factor) {
+	const double matrix[] = {
+		factor,	0.0,
+		0.0,	factor
 	};
 	return image.transform(matrix);
 }
