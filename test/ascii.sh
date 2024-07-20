@@ -1,1 +1,1 @@
-cmake-build-debug/Image_Processor --ref test/ref/penguins.jpg --out test/out/ascii.txt contrast --value=130 ascii --cols=200 --ratio=2.8
+cmake-build-debug/Image_Processor --ref test/ref/logo.jpg --out test/out/ascii.txt contrast --value=130 ascii --cols=200 --ratio=2.8
