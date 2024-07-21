@@ -130,7 +130,7 @@ ImageMatrix* octopus_dragon(const ImageMatrix& image);
 /**
  * Rotates the image
  * @param image The image
- * @param theta The angle of rotation in degrees
+ * @param angle The angle of rotation in degrees
  * @return The output image
  */
 ImageMatrix* rotate(const ImageMatrix& image, const double& angle);
@@ -155,7 +155,7 @@ ImageMatrix* reflect_vertical(const ImageMatrix& image);
 /**
  * Scales the image
  * @param image The image
- * @param theta The factor by which to scale the image
+ * @param factor The factor by which to scale the image
  * @return The output image
  */
 ImageMatrix* dilate(const ImageMatrix& image, const double& factor);

@@ -1,7 +1,6 @@
 #define _USE_MATH_DEFINES
 #include <cmath>
 #include "image_functions.h"
-#include <iostream>
 #include <cstdint>
 #include <sstream>
 #include <vector>
@@ -151,7 +150,7 @@ ImageMatrix* sharpen(const ImageMatrix& image) {
 
 
 ImageMatrix* contrast(const ImageMatrix& image, const int& value) {
-	const double factor = (259.0 * (value + 255)) / (255 * (259 - value));
+	const double factor = 259.0 * (value + 255) / (255 * (259 - value));
 	const double matrix[] = {
 		factor,	0,		0,		128 - factor*128,
 		0,		factor,	0,		128 - factor*128,
